@@ -1,29 +1,16 @@
 (() => {
-	let badge = document.querySelector('img');
+	let myTL = new TimelineLite();
 
-	function animImage() {
-		// element, time, properties
-		// TweenMax.to(el, time, {props});
-		
-		TweenMax.to(badge, 1.7, 
-			{ 	scakeX: 1.025, 
-				scaleY: 1.025, 
-				rotation: 50, 
-				ease:Elastic.easeInOut, 
-				onComplete: animFooterText
-			});
-	}
-
-	function animFooterText() {
-		TweenMax.to('h3', 0.7, 
-			{ 	scakeX: 2, 
-				scaleY: 2,  
-				ease:Bounce.easeOut, 
-			});
-	}
-
-
-	// animImage();
-	badge.addEventListener('mouseover', animImage);
-
+	myTL.to( "#background", 0.5, {
+			rotation: 180,
+			scaleX: 1.1,
+			scaleY: 1.1,
+			transformOrigin: "50% 50%"
+		})
+		.to("#small_type", 1, {
+			rotation: -360,
+			transformOrigin: "50% 50%"
+		});
+		// use on complete in GOT homework
+		// Also, GOT house logos should be animated with GreenSock
 })();
